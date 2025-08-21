@@ -1,0 +1,20 @@
+general:
+  kafka-topic: "tx"
+# kafka topic - is like a bus / pipeline
+# where producers send msgs and
+# consumers listen to them (by subscribing to this kafka topic / bus)
+
+spring:
+  kafka:
+    consumer:
+      auto-offset-reset: earliest
+      group-id: midas
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      properties:
+        spring:
+          json:
+            trusted:
+              packages: "*"
+    producer:
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
