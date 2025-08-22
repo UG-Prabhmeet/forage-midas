@@ -1,3 +1,6 @@
+server:
+  port: 33400
+
 general:
   kafka-topic: "tx"
 # kafka topic - is like a bus / pipeline
