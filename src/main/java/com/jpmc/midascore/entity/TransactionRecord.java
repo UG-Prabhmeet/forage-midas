@@ -8,7 +8,7 @@ public class TransactionRecord {
 
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
 
     @ManyToOne (optional = false)
     @JoinColumn (name = "sender_id")
@@ -22,24 +22,29 @@ public class TransactionRecord {
     private float amount;
 
     @Column (nullable = false)
+    private float incentive;
+
+    @Column (nullable = false)
     private Instant createdAt = Instant.now();
 
     protected TransactionRecord() {}
 
-    public TransactionRecord (UserRecord sender , UserRecord recipient , float amount) {
+    public TransactionRecord (UserRecord sender , UserRecord recipient , float amount, float incentive) {
         this.sender = sender;
         this.recipient = recipient;
         this.amount = amount;
+        this.incentive = incentive;
     }
 
     @Override
     public String toString() {
         return String.format(
-                "Transaction[id=%d, sender='%s', recipient='%s', amount=%.2f, createdAt=%s]",
+                "Transaction[id=%d, sender='%s', recipient='%s', amount=%.2f, incentive=%.2f, createdAt=%s]",
                 id,
                 sender != null ? sender.getName() : "null",
                 recipient != null ? recipient.getName() : "null",
                 amount,
+                incentive,
                 createdAt
         );
     }
@@ -59,6 +64,10 @@ public class TransactionRecord {
 
     public float getAmount () {
         return amount;
+    }
+
+    public float getIncentive () {
+        return incentive;
     }
 
     public Instant getCreatedAt () {

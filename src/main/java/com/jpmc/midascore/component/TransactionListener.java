@@ -25,6 +25,7 @@ public class TransactionListener {
         // message is consumed from Kafka.
 
         processor.process(tx);
+
         // System.out.println(">>> RECEIVED Transaction: " + tx);
         // System.out.println(">>> AMOUNT: " + tx.getAmount());
     }
