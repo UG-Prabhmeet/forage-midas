@@ -11,8 +11,7 @@ import java.util.stream.StreamSupport;
 
 @Component
 
-// database conduit - pipeline / bridge b/w our code (transaction processor and database)
-// it's a class carrying user & transaction data to/from the database
+// database conduit - acts as a bridge between our business logic and the database repositories
 
 public class DatabaseConduit {
     private final UserRepository userRepository;

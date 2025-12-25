@@ -15,6 +15,7 @@ public class TransactionListener {
     public TransactionListener (TransactionProcessor processor) {
         this.processor = processor;
     }
+    
     @KafkaListener(topics = "${general.kafka-topic}", groupId = "${spring.kafka.consumer.group-id}")
     // marks this function as a Kafka Consumer.
     // spring automatically subscribes it to the given topic.
