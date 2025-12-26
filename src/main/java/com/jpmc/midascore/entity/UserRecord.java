@@ -3,17 +3,18 @@ package com.jpmc.midascore.entity;
 import jakarta.persistence.*;
 
 @Entity
+// Tells the database: "Create a table for this class." Each object will be a row in that table.
 public class UserRecord {
 
-    @Id
-    @GeneratedValue()
-    private long id;
+    @Id 
+    @GeneratedValue() 
+    private long id;  // id is primary key with auto increment
 
+    @Column(nullable = false) 
+    private String name; // name is not null
+ 
     @Column(nullable = false)
-    private String name;
-
-    @Column(nullable = false)
-    private float balance;
+    private float balance; // balance is not null
 
     protected UserRecord() {
     }
@@ -31,6 +32,7 @@ public class UserRecord {
         );
     }
 
+    // getters
     public Long getId() {
         return id;
     }
@@ -43,6 +45,7 @@ public class UserRecord {
         return balance;
     }
 
+    // setter
     public void setBalance(float balance) {
         this.balance = balance;
     }

@@ -2,7 +2,7 @@ package com.jpmc.midascore.foundation;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonIgnoreProperties(ignoreUnknown = true) // dont crash on unknown properties
 public class Balance {
     private float amount;
 

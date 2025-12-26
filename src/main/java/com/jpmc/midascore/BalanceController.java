@@ -17,6 +17,9 @@ public class BalanceController {
     }
 
     @GetMapping ("/balance")
+    /* Listens for GET requests at "http://localhost:8080/balance".
+       @RequestParam long userId: Looks for "?userId=123" in the URL.
+    */
     public Balance getBalance (@RequestParam long userId) {
         UserRecord user = databaseConduit.getUserById(userId);
 

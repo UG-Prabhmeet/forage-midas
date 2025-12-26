@@ -8,15 +8,15 @@ public class TransactionRecord {
 
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long id; // id is primary key with auto increment
 
     @ManyToOne (optional = false)
     @JoinColumn (name = "sender_id")
-    private UserRecord sender;
+    private UserRecord sender; // many transactions can have one sender, sender_id is foreign key
 
     @ManyToOne (optional = false)
     @JoinColumn (name = "recipient_id")
-    private UserRecord recipient;
+    private UserRecord recipient; // many transactions can have one recipient, recipient_id is foreign key
 
     @Column (nullable = false)
     private float amount;
@@ -25,7 +25,7 @@ public class TransactionRecord {
     private float incentive;
 
     @Column (nullable = false)
-    private Instant createdAt = Instant.now();
+    private Instant createdAt = Instant.now(); 
 
     protected TransactionRecord() {}
 

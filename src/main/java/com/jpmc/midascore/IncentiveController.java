@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.*;
 public class IncentiveController {
 
     @PostMapping("/incentive")
+    // Listens for POST requests at "http://localhost:8080/incentive"
+    // @RequestBody Transaction tx: Extracts the JSON body of the request into a Transaction object
     public Incentive calculateIncentive(@RequestBody Transaction tx) {
         // Log the received transaction
         System.out.println("Received transaction: " + tx);

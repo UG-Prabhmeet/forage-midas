@@ -9,23 +9,15 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 import java.util.stream.StreamSupport;
 
-@Component
-<<<<<<< HEAD
+@Component 
 
 // database conduit - acts as a bridge between our business logic and the database repositories
 
-=======
-// The DatabaseConduit acts as a bridge between our application logic
-// (like the TransactionProcessor) and the underlying database.
-// Basically, it handles all the data operations related to users and transactions.
->>>>>>> 28bfa3783dd4822593ef1750952c3b7e54ef7898
 public class DatabaseConduit {
 
-    // Spring Data JPA repositories that handle CRUD operations for User and Transaction tables
     private final UserRepository userRepository;
     private final TransactionRepo transactionRepo;
 
-    // Constructor injection – Spring automatically provides the required repositories
     public DatabaseConduit(UserRepository userRepository, TransactionRepo transactionRepo) {
         this.userRepository = userRepository;
         this.transactionRepo = transactionRepo;
